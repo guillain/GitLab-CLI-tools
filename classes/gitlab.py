@@ -53,7 +53,6 @@ class Gitlab(object):
 
     def get_group(self, group_name):
         for group in self.get("groups"):
-            print(group_name, group)
             if group_name == group['name']:
                 return group
         return False

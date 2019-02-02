@@ -9,12 +9,13 @@ default_git_url = "gitlab.com"
 default_git_version = "4"
 
 def help_me():
-    print('python main.py -a <action> -t <token> [-i <gitlab_url>]')
+    print('python main.py -a <action> -t <token> [-w <gitlab url> -v <gitlab api version> -u <user>]')
     print('- action: sync, download, list_group, delete_group, create_group, list_project, create_project')
     print('- token: git lab user token (get from your gitlab profile)')
     print('Optional parameters:')
     print('- gitlab_url: default is ' + default_git_url)
-    print('- gitlab_api_path: default is ' + default_git_version)
+    print('- gitlab_api_version: default is ' + default_git_version)
+    print('- gitlab user: no default, required if private group or project')
     print('Depend on of your action, specific parameters can be required')
 
 
@@ -106,7 +107,7 @@ def main(argv):
             print('- The gitlab group prefix to add for gorup creation: -p "tonton-" / --prefix "tonton-" / prefix="tonton-"')
             print('- The path of the folder structure to analyze: -d "./dev" / --dir "./dev" / dir="./dev"')
             exit("help", 1)
-        gl.h_sync(token, user, prefix, dir)
+        gl.h_sync(prefix, dir)
 
     elif action == 'download':
         if user in ('', None) or dir in ('', None) or group_name in ('', None):

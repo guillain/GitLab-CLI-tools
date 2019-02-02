@@ -1,6 +1,7 @@
 # GitLab-CLI-tools
 
-Used to synchronize your local folder with your GitLab repositories.
+Used to synchronize your local folders with your GitLab projects
+following your group structure.
 
 Feature available:
 * download all projects from a group
@@ -26,7 +27,7 @@ Execute the main script
 
 ## Parameters
 ```
-python main.py -a <action> -t <token> [-i <gitlab_url>]
+python main.py -a <action> -t <token> [-w <gitlab_url> -v <gitlab api version> -u <user>]
     - action:
         sync
         download
@@ -38,7 +39,8 @@ python main.py -a <action> -t <token> [-i <gitlab_url>]
     - token: git lab user token (get from your gitlab profile)
     Optional parameters:
         - gitlab_url: default is gitlab.com
-        - gitlab_api_path: default is 4
+        - gitlab_api_version: default is 4
+        - user: no default, required if private group or project
 ```
 
 ## Folder vs Project/Group structure

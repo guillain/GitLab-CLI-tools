@@ -9,7 +9,7 @@ class Filing(object):
 
     def get_folders(self, path):
         return [os.path.join(path, o) for o in os.listdir(path)
-                if os.path.isdir(os.path.join(path,o))]
+                if os.path.isdir(os.path.join(path, o))]
 
     def create_folder(self, path):
         if not os.path.exists(path):

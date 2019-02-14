@@ -54,6 +54,7 @@ def main(argv):
                 user = arg
             elif opt in ("-d", "--dir"):
                 dir = arg
+                print('dir', dir)
             elif opt in ("-f", "--prefix"):
                 prefix = arg
             elif opt in ("-g", "--group_name"):
@@ -110,10 +111,11 @@ def main(argv):
         gl.h_sync(prefix, dir)
 
     elif action == 'download':
-        if user in ('', None) or dir in ('', None) or group_name in ('', None):
+        if user in ('', None) or dir in ('', None):
             print('Thanks to provide also the following mandatory parameters:')
             print('- The gitlab user name: -u "tonton" / --user "tonton" / user="tonton"')
             print('- The folder where to store the download: -d "./dev" / --dir "./dev" / dir="./dev"')
+            print('Optionnaly if it\'s only the projects of a group to download')
             print('- The gitlab group name: -g "tonton-python" / --group_name "tonton-python" / group_name="tonton-python"')
             print('Optionnaly if it\'s only the project to download')
             print('- The gitlab project name: -p "gitlab-mirroring" / --project_name "gitlab-miroring" / project_name="gitlab-mirroring"')
